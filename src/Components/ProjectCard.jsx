@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Card, Col, Modal, Row } from 'react-bootstrap'
 import PROJECT1IMG from "../Assets/project1.png"
 import { BASEURL } from '../services/baseUrl';
+import { FaGithub } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 
 
@@ -39,8 +41,8 @@ function ProjectCard({ project }) {
                         </Col>
                     </Row>
                     <div className='mt-3'>
-                        <a target='_blank' href={project.github} className='btn me-5'><i className="fa-brands fa-github fa-2x"></i></a>
-                        <a target="_blank" href={project.website} className='btn me-5'> <i class="fa-solid fa-link fa-2x"></i></a>
+                        <a target='_blank' href={project.github} className='btn me-5'><FaGithub size={30}/> </a>
+                        <a target="_blank" href={project.website} className='btn me-5'> <FaTrash size={30}/></a>
                     </div>
                 </Modal.Body>
             </Modal>

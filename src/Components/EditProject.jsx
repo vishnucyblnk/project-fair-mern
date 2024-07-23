@@ -3,6 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { BASEURL } from '../services/baseUrl';
 import { editProjectAPI } from '../services/allApis';
 import { editProjectResponseContext } from '../Context/ContextShare';
+import { FaPenToSquare } from "react-icons/fa6";
 
 function EditProject({ displayData }) {
 
@@ -79,7 +80,7 @@ function EditProject({ displayData }) {
     return (
         <>
             <button onClick={handleShow} className='btn'>
-                <i class='fa-solid fa-pen-to-square fa-2x'></i>
+                <FaPenToSquare size={30}/>
             </button>
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} size='lg' Centered>
                 <Modal.Header closeButton>

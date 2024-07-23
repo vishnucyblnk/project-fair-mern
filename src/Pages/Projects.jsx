@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../Components/Header'
-import { Row, Col } from 'react-bootstrap'
-import ProjectCard from '../Components/ProjectCard'
-import { allProjectsAPI } from '../services/allApis'
-
+import React, { useEffect, useState } from 'react';
+import Header from '../Components/Header';
+import { Row, Col } from 'react-bootstrap';
+import ProjectCard from '../Components/ProjectCard';
+import { allProjectsAPI } from '../services/allApis';
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 function Projects() {
     const [searchKey, setSearchKey] = useState("")
     const [allProjects, setAllProjects] = useState([])
     // const [token,setToken] = useState("")
+    const navigate = useNavigate()
 
     const getAllProjects = async (token) => {
         const reqHeader = {
@@ -28,6 +30,7 @@ function Projects() {
             getAllProjects(token)
         } else {
             alert("Please Login!!!")
+            navigate('/login')
         }
     }, [searchKey])
 
@@ -42,7 +45,7 @@ function Projects() {
                 <div className='d-flex  mb-5 justify-content-center w-100'>
                     <div className='d-flex align-items-center border rounded w-50'>
                         <input className='form-control' placeholder='search by technologies' onChange={e => setSearchKey(e.target.value)} />
-                        <div style={{ marginLeft: '-50px' }}> <i className="fa-solid fa-magnifying-glass"></i></div>
+                        <div style={{ marginLeft: '-50px' }}> <FaMagnifyingGlass /> </div>
                     </div>
                 </div>
                 <div className='container-fluid'>

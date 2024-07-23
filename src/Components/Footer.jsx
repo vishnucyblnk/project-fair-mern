@@ -1,14 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaStackOverflow } from "react-icons/fa";
 
 function Footer() {
     return (
         <div className='d-flex flex-column align-items-center justify-content-center mt-2' style={{ backgroundColor: '#90ee90', zIndex: '1', width: '100%', height: '400px' }}>
             <div className='footer d-flex justify-content-evenly w-100'>
                 <div style={{ width: '400px' }} className='website'>
-                    <h4>
-                        <i className="fa-solid fa-cloud-arrow-up "></i>{' '}
+                    <h4 className='d-flex fw-bold'>
+                        <FaStackOverflow />
                         Project Fair
                     </h4>
                     <h5>Designed and build with all the love in the world by the Bootstrap team with the help of our contributors</h5>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaStackOverflow } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 
 
@@ -16,13 +18,13 @@ function Header({ insideDashboard }) {
 
     return (
         <Navbar style={{ backgroundColor: '#90ee90', zIndex: '1' }} className="w-100 position-fixed top-0">
-            <Container>
+            <Container >
                 <Navbar.Brand >
-                    <Link to={'/'} style={{ textDecoration: 'none' }} ><i className='fa-brands fa-stack-overflow fa-bounce'></i>project fair</Link>
+                    <Link to={'/'} className='fw-bold d-flex justify-content-center align-items-center' style={{ textDecoration: 'none' }} ><FaStackOverflow className='me-1'/> Project Fair</Link>
                 </Navbar.Brand>
                 {
                     insideDashboard &&
-                    <div style={{ textDecoration: 'none' }} className=' btn btn-link ms-auto text-light fw-bolder fs-5' onClick={handleLogout}><i className="fa-solid fa-right-from-bracket ms-2 fa-beat "></i> LOGOUT </div>
+                    <div style={{ textDecoration: 'none' }} className=' btn btn-link ms-auto text-light fw-bolder fs-5 d-flex justify-content-center align-items-center ' onClick={handleLogout}><FaArrowRight className='me-1'/> LOGOUT </div>
                 }
             </Container>
         </Navbar>

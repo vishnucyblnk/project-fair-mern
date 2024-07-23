@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import AddProject from './AddProject'
 import { deleteProjectAPI, userProjectAPI } from '../services/allApis'
 import { addProjectResponseContext, editProjectResponseContext } from '../Context/ContextShare'
-import EditProject from './EditProject'
+import EditProject from './EditProject';
+import { FaGithub } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 function MyProjects() {
     const { editProjectResponse, setEditProjectResponse } = useContext(editProjectResponseContext)
@@ -64,8 +66,8 @@ function MyProjects() {
                             <h4>{project.title}</h4>
                             <div className=' icons ms-auto'>
                                 <EditProject displayData={project} />
-                                <a className='btn' href={`${project.github}`} target='_blank'><i class="fa-brands fa-github fa-2x"></i></a>
-                                <button onClick={(e) => handleDelete(e, project._id)} className='btn'><i class="fa-solid fa-trash fa-2x"></i></button>
+                                <a className='btn' href={`${project.github}`} target='_blank'><FaGithub size={30}/> </a>
+                                <button onClick={(e) => handleDelete(e, project._id)} className='btn'><FaTrash size={30}/> </button>
                             </div>
                         </div>
                     ))

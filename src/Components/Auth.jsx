@@ -4,6 +4,8 @@ import { Button, Form } from 'react-bootstrap'
 import { loginAPI, registerAPI } from '../services/allApis'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { FaStackOverflow } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 function Auth({ register }) {
@@ -63,7 +65,7 @@ function Auth({ register }) {
     return (
         <div style={{ width: '100%', height: '100vh' }} className='d-flex justify-content-center align-items-center'>
             <div className='container w-75'>
-                <Link to={'/'} style={{ textDecoration: 'none' }} className='d-flex align-items-center'> <i className='fa-solid fa-arrow-left me-2'></i><h5>Back to Home</h5></Link>
+                <Link to={'/'} style={{ textDecoration: 'none' }} className='d-flex align-items-center'> <h5 className='d-flex justify-content-center align-items-center'><FaArrowLeft /> Back to Home</h5></Link>
                 <div className='card shadow p-5 bg-success'>
                     <div className='row align-items-center'>
                         <div className='col-lg-6'>
@@ -72,8 +74,7 @@ function Auth({ register }) {
                         <div className='col-lg-6'>
                             <div className='d-flex flex-column align-items-center'>
                                 <div className='d-flex mt-2 text-light'>
-                                    <i className='fa-brands fa-stack-overflow fa-bounce fa-3x me-1'></i>
-                                    <span className='h1 fw-bolder mb-0'>Project Fair</span>
+                                    <span className='h1 fw-bolder mb-0 d-flex justify-content-center align-items-center'> <FaStackOverflow /> Project Fair</span>
                                 </div>
                                 <h5 className='fw-normal mt-4 pb-3 text-light'>
                                     {
