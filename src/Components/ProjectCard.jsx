@@ -3,7 +3,6 @@ import { Card, Col, Modal, Row } from 'react-bootstrap'
 import PROJECT1IMG from "../Assets/project1.png"
 import { BASEURL } from '../services/baseUrl';
 import { FaGithub } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
 
 
 

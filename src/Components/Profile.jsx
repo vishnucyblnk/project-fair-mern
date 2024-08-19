@@ -12,11 +12,14 @@ function Profile() {
     })
 
     useEffect(() => {
-        if (userData.profImg && userData.profImg instanceof File) {
-            setPreview(URL.createObjectURL(userData.profImg))
-        }else{
-            setPreview("https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png")
-        }   
+        // if (userData.profImg && userData.profImg instanceof File) {
+        //     setPreview(URL.createObjectURL(userData.profImg))
+        // }else{
+        //     setPreview("https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png")
+        // }   
+        if (userData.profImg) {
+            setPreview(URL.createObjectURL(project.projectImage))
+        }
     }, [userData.profImg])
 
     // useEffect(()=>{
@@ -87,8 +90,8 @@ function Profile() {
                     {/* picture */}
                     <label htmlFor="profile" className='text-center' >
                         <input id='profile' type="file" style={{ display: 'none' }} onChange={e => setUserData({ ...userData, profImg: e.target.files[0] })}/>
-                        {/* <img width={'200px'} height={'200px'} className='rounded-circle' src={preview ? preview : `${BASEURL}/uploads/images/${userData.profImg}`} alt="profile-pic" /> */}
-                        <img width={'200px'} height={'200px'} className='rounded-circle' src={`${BASEURL}/uploads/images/${userData.profImg}`} alt="profile-pic" />
+                        <img width={'200px'} height={'200px'} className='rounded-circle' src={preview ? preview : `https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png`} alt="profile-pic" />
+                        
                     </label>
                     <div className='mb-3'>
                         <input type="text" className='form-control' placeholder='Username' value={userData?.username} onChange={e => setUserData({ ...userData, username: e.target.value })} />
