@@ -1,4 +1,4 @@
-export const BASEURL = 'http://localhost:4000'
+export const BASEURL = 'https://project-fair-backend-o71m.onrender.com'
 
 
 //for localhost : 'http://localhost:4000'
