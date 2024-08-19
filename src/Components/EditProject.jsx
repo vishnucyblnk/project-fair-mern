@@ -91,7 +91,7 @@ function EditProject({ displayData }) {
                         <div className='col-lg-6'>
                             <label className='text-center' htmlFor="projectpic">
                                 <input id='projectpic' type="file" style={{ display: 'none' }} onChange={e => setProject({ ...project, projectImage: e.target.files[0] })} />
-                                <img width={'100%'} height={'200px'} src={preview ? preview : `${BASEURL}/uploads/${displayData.projectImage}`} alt="profile-pic" />
+                                <img width={'100%'} height={'200px'} src={preview ? preview : `${BASEURL}/uploads/images/${displayData.projectImage}`} alt="profile-pic" />
                             </label>
                         </div>
                         <div className='col-lg-6'>

@@ -18,7 +18,7 @@ function ProjectCard({ project }) {
     return (
         <>
             {project && <Card className='shadow mb-5 btn' onClick={handleShow}>
-                <Card.Img variant="top" src={project?.projectImage ? `${BASEURL}/uploads/${project.projectImage}` : PROJECT1IMG} />
+                <Card.Img variant="top" src={project?.projectImage ? `${BASEURL}/uploads/images/${project.projectImage}` : PROJECT1IMG} />
                 <Card.Body>
                     <Card.Title>{project.title}</Card.Title>
                 </Card.Body>
@@ -32,7 +32,7 @@ function ProjectCard({ project }) {
                 <Modal.Body>
                     <Row>
                         <Col>
-                            <img style={{ height: '200px' }} className='img-fluid' src={project?.projectImage ? `${BASEURL}/uploads/${project.projectImage}` : PROJECT1IMG} alt="single project" />
+                            <img style={{ height: '200px' }} className='img-fluid' src={project?.projectImage ? `${BASEURL}/uploads/images/${project.projectImage}` : PROJECT1IMG} alt="single project" />
                         </Col>
                         <Col>
                             <h2>{project.title}</h2>
