@@ -12,26 +12,17 @@ function Profile() {
     })
 
     useEffect(() => {
-        // if (userData.profImg && userData.profImg instanceof File) {
-        //     setPreview(URL.createObjectURL(userData.profImg))
-        // }else{
-        //     setPreview("https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png")
-        // }   
-        if (userData.profImg) {
-            setPreview(URL.createObjectURL(userData.profImg))
+        // If the user has a profile image, show it. Otherwise, show the default image.
+        if (userData.profImg instanceof File) {
+            setPreview(URL.createObjectURL(userData.profImg));
+        } else if (userData.profImg) {
+            setPreview(`${BASEURL}/uploads/images/${userData.profImg}`);
+        } else {
+            setPreview("https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png");
         }
-    }, [userData.profImg])
+    }, [userData.profImg]);
 
-    // useEffect(()=>{
-    //     const user = JSON.parse(localStorage.getItem('existingUser'));
-    //     if(user){
-    //         setUserData((prevState)=>({
-    //             ...prevState, id: user._id, username: user.username, email: user.email, password: user.password, github: user.github || '', linkedin: user.linkedin || '', profImg: user.profImg || ''})
-    //         )
-    //     }
-    // },[userData.profImg]);
-
-
+// 
     const handleUpdate = async (e) => {
         e.preventDefault()
         const { id, username, email, password, github, linkedin, profImg } = userData
@@ -48,33 +39,35 @@ function Profile() {
             if (profImg instanceof File) {
                 reqBody.append("profImg", profImg);
             }
-            if (profImg) {
-                const reqHeader = {
-                    "Content-Type": "multipart/form-data", "Authorization": `Bearer ${token}`
-                }
-                const res = await editProfileAPI(id, reqBody, reqHeader)
-                if (res.status === 200) {
-                    localStorage.setItem("existingUser", JSON.stringify(res.data.updateProfile))
-                    localStorage.setItem("Role", res.data.role)
-                    toast.success('Profile updated successfully');
-                } else {
-                    toast.warning(res.response.data)
-                }
 
-            } else {
-                const reqHeader = {
-                    "Content-Type": "application/json", "Authorization": `Bearer ${token}`
-                }
-                const res = await editProfileAPI(id, reqBody, reqHeader)
-                if (res.status === 200) {
-                    localStorage.setItem("existingUser", JSON.stringify(res.data.updateProfile))
-                    localStorage.setItem("Role", res.data.role)
-                    toast.success('Profile updated successfully');
-
-                } else {
-                    toast.warning(res.response.data)
-                }
+            const reqHeader = {
+                "Content-Type": profImg instanceof File ? "multipart/form-data" : "application/json" , "Authorization": `Bearer ${token}`
             }
+            const res = await editProfileAPI(id, reqBody, reqHeader)
+            if (res.status === 200) {
+                localStorage.setItem("existingUser", JSON.stringify(res.data.updateProfile))
+                localStorage.setItem("Role", res.data.role)
+                toast.success('Profile updated successfully');
+            } else {
+                toast.warning(res.response.data)
+            }
+
+            // if (profImg) {
+                
+            // } else {
+            //     const reqHeader = {
+            //         "Content-Type": "application/json", "Authorization": `Bearer ${token}`
+            //     }
+            //     const res = await editProfileAPI(id, reqBody, reqHeader)
+            //     if (res.status === 200) {
+            //         localStorage.setItem("existingUser", JSON.stringify(res.data.updateProfile))
+            //         localStorage.setItem("Role", res.data.role)
+            //         toast.success('Profile updated successfully');
+
+            //     } else {
+            //         toast.warning(res.response.data)
+            //     }
+            // }
         }
     }
 
@@ -90,8 +83,12 @@ function Profile() {
                     {/* picture */}
                     <label htmlFor="profile" className='text-center' >
                         <input id='profile' type="file" style={{ display: 'none' }} onChange={e => setUserData({ ...userData, profImg: e.target.files[0] })}/>
-                        <img width={'200px'} height={'200px'} className='rounded-circle' src={preview ? preview : `https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png`} alt="profile-pic" />
+
+
+                        <img width={'200px'} height={'200px'} className='rounded-circle' src={preview? preview : "https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png"} alt="profile-pic" />
                         
+
+
                     </label>
                     <div className='mb-3'>
                         <input type="text" className='form-control' placeholder='Username' value={userData?.username} onChange={e => setUserData({ ...userData, username: e.target.value })} />
