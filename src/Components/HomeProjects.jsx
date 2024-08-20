@@ -7,7 +7,7 @@ function HomeProjects({ allProjects }) {
     return (
         <>
             <h1 className='text-center mb-5'>Explore Our Projects</h1>
-            <marquee scrollAmount={20}>
+            <marquee scrollAmount={allProjects?.length}>
                 <Row>
                     {
                         allProjects?.length > 0 ?
