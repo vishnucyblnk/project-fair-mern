@@ -18,7 +18,7 @@ function Profile() {
         //     setPreview("https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-1024.png")
         // }   
         if (userData.profImg) {
-            setPreview(URL.createObjectURL(project.projectImage))
+            setPreview(URL.createObjectURL(userData.profImg))
         }
     }, [userData.profImg])
 
