@@ -5,6 +5,7 @@ import { addProjectResponseContext, editProjectResponseContext } from '../Contex
 import EditProject from './EditProject';
 import { FaGithub } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { TbWorldWww } from 'react-icons/tb';
 
 function MyProjects() {
     const { editProjectResponse, setEditProjectResponse } = useContext(editProjectResponseContext)
@@ -66,8 +67,9 @@ function MyProjects() {
                             <h4>{project.title}</h4>
                             <div className=' icons ms-auto'>
                                 <EditProject displayData={project} />
-                                <a className='btn' href={`${project.github}`} target='_blank'><FaGithub size={30}/> </a>
-                                <button onClick={(e) => handleDelete(e, project._id)} className='btn'><FaTrash size={30}/> </button>
+                                <a className='btn border border-black me-1' href={`${project.website}`} target='_blank'><TbWorldWww size={30}/> </a>
+                                <a className='btn border border-black me-1' href={`${project.github}`} target='_blank'><FaGithub size={30}/> </a>
+                                <button onClick={(e) => handleDelete(e, project._id)} className='btn border border-black me-1'><FaTrash size={30}/> </button>
                             </div>
                         </div>
                     ))

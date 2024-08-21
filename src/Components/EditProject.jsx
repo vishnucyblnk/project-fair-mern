@@ -79,7 +79,7 @@ function EditProject({ displayData }) {
 
     return (
         <>
-            <button onClick={handleShow} className='btn'>
+            <button onClick={handleShow} className='btn border border-black me-1'>
                 <FaPenToSquare size={30}/>
             </button>
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} size='lg' Centered>
