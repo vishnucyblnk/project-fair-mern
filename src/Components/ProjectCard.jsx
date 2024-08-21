@@ -3,7 +3,7 @@ import { Card, Col, Modal, Row } from 'react-bootstrap'
 import PROJECT1IMG from "../Assets/project1.png"
 import { BASEURL } from '../services/baseUrl';
 import { FaGithub } from "react-icons/fa";
-
+import { TbWorldWww } from "react-icons/tb";
 
 
 
@@ -38,9 +38,15 @@ function ProjectCard({ project }) {
                             <h2>{project.title}</h2>
                             <p>{project.overview}</p>
                             <p>Language Used: <span className='ms-2 fw-bolder'>{project.languages}</span></p>
-                            <div className='mt-3'>
-                                <a target='_blank' href={project.github} className='btn me-5'><FaGithub size={30}/> </a>
+                            <div className='d-flex'>
+                                <div className='mt-3'>
+                                    <a target='_blank' href={project.github} className='btn me-5'><FaGithub size={30}/> </a>
+                                </div>
+                                <div className='mt-3'>
+                                    <a target='_blank' href={project.website} className='btn me-5'><TbWorldWww size={30}/> </a>
+                                </div>
                             </div>
+                            
                         </Col>
                     </Row>
                     
